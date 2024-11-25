@@ -1,0 +1,104 @@
+@import "../../responsive.scss";
+
+// Global reset for margins, paddings, and box-sizing
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.aboutPage {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .contentContainer {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+        padding: 20px;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        // Flexbox container for the bio and image
+        .bioContainer {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            min-height: 100%; // Ensure it takes full height
+
+            h2 {
+                font-size: 2rem;
+                font-weight: bold;
+                color: teal;
+            }
+
+            p {
+                font-size: 1rem;
+                line-height: 1.5;
+                color: #333;
+            }
+
+            .contactDetails {
+                margin-top: 20px;
+
+                h3 {
+                    font-size: 1.5rem;
+                    color: #333;
+                }
+
+                ul {
+                    list-style-type: none;
+                    padding: 0;
+
+                    li {
+                        font-size: 1rem;
+                        color: #555;
+                    }
+                }
+            }
+        }
+
+        .imageContainer {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 180px;
+                height: 180px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    // Responsive for medium screens
+    @include md {
+        flex-direction: column;
+
+        .contentContainer {
+            flex-direction: column;
+
+            .bioContainer {
+                flex: none;
+                width: 100%;
+            }
+
+            .imageContainer {
+                margin-top: 20px;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}

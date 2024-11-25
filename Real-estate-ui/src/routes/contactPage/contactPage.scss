@@ -1,0 +1,129 @@
+@import "../../responsive.scss"; /* Importing responsive styles from your existing SCSS setup */
+
+/* Contact page styling */
+.contactPage {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  padding: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  .contentContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .bioContainer {
+      flex: 3;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+
+      h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: teal;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #333;
+      }
+
+      .contactDetails {
+        margin-top: 20px;
+
+        h3 {
+          font-size: 1.5rem;
+          color: #333;
+        }
+
+        ul {
+          list-style-type: none;
+          padding: 0;
+
+          li {
+            font-size: 1rem;
+            color: #555;
+          }
+        }
+      }
+
+      .statusMessage {
+        margin-top: 20px;
+        font-size: 1rem;
+        color: green;
+      }
+    }
+
+    .formContainer {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+
+      h3 {
+        font-size: 1.5rem;
+        color: #333;
+      }
+
+      .formGroup {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          font-size: 1rem;
+          color: #555;
+          margin-bottom: 5px;
+        }
+
+        input,
+        textarea {
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          font-size: 1rem;
+          color: #333;
+          width: 100%;
+          margin-bottom: 15px;
+        }
+
+        textarea {
+          resize: vertical;
+          min-height: 100px;
+        }
+      }
+
+      .submitBtn {
+        padding: 12px 20px;
+        border: none;
+        background-color: teal;
+        color: #fff;
+        font-size: 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #00796b;
+        }
+      }
+    }
+  }
+
+  /* Responsive styles for smaller screens */
+  @include md {
+    flex-direction: column;
+
+    .contentContainer {
+      flex-direction: column;
+    }
+  }
+}

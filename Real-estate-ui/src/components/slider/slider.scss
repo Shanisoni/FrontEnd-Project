@@ -1,0 +1,94 @@
+@import "../../responsive.scss";
+
+.slider {
+    display: flex;
+    width: 100%;
+    height: 350px;
+    gap: 20px;
+
+    .fullSlider {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: black;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 9999;
+
+        .arrow {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                width: 50px;
+
+                @include md {
+                    width: 30px;
+                }
+
+                @include sm {
+                    width: 20px;
+                }
+
+                &.right {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        .imgContainer {
+            flex: 10;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            padding: 50px;
+            cursor: pointer;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .bigImg {
+        flex: 3;
+    }
+
+    .smallImg {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+
+        img {
+            height: 100px;
+
+            &:hover {
+                transform: scale(1.05); // Slight zoom effect on hover
+                cursor: pointer;
+            }
+        }
+    }
+}
