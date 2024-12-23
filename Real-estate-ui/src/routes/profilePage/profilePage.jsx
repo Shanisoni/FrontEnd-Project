@@ -20,8 +20,8 @@ function ProfilePage() {
                             Avatar:
                             <img src="Profilephoto.jpg" alt="" />
                         </span>
-                        <span>Username: <b>Nishchal Sachan</b></span>
-                        <span>E-mail: <b>sachannishchal@gmail.com</b></span>
+                        <span>Username: <b>Shani Soni</b></span>
+                        <span>E-mail: <b>shanisoni7084@gmail.com</b></span>
                     </div>
 
                     <div className="title">

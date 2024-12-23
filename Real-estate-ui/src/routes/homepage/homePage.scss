@@ -1,4 +1,67 @@
 @import "../../responsive.scss";
+.homePage {
+    .textContainer {
+        .wrapper {
+            .title {
+                font-size: 3rem; /* Adjust as needed */
+                font-weight: 800; /* Make it thicker */
+                background: linear-gradient(90deg, #bd3918, #c57b43, #80e750);
+                background-size: 200% 200%; /* Enable gradient animation */
+                -webkit-background-clip: text; /* Apply the gradient to text */
+                -webkit-text-fill-color: transparent; /* Make the rest of the text transparent */
+                animation: gradientShift 3s ease infinite; /* Infinite gradient animation */
+            }
+
+            /* Gradient animation */
+            @keyframes gradientShift {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            p {
+                font-size: 1.2rem;
+                line-height: 1.8;
+                color: #333; /* Neutral text color */
+            }
+
+            .boxes {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 2rem;
+
+                .box {
+                    text-align: center;
+
+                    h1 {
+                        font-size: 2.5rem;
+                        font-weight: bold;
+                        color: #333; /* Neutral text color */
+                    }
+
+                    h2 {
+                        font-size: 1.2rem;
+                        color: #555;
+                    }
+                }
+            }
+        }
+    }
+
+    .imgContainer {
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}
+
 
 .homePage {
     display: flex;

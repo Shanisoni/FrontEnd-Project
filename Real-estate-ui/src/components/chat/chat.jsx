@@ -1,101 +1,52 @@
-import "./chat.scss"
-import React, { useState } from 'react';
-
+import React, { useState } from "react";
+import axios from "axios";
 
 function Chat() {
-    const [chat, setChat] = useState(true);
+    const [messages, setMessages] = useState([]);
+    const [userInput, setUserInput] = useState("");
+
+    const handleSendMessage = async () => {
+        if (userInput.trim()) {
+            const userMessage = { sender: "You", text: userInput, time: "Just now" };
+            setMessages([...messages, userMessage]);
+            setUserInput("");
+
+            try {
+                const response = await axios.post("http://localhost:5000/chat", {
+                    query: userInput,
+                });
+
+                const botMessage = { sender: "Bot", text: response.data.reply, time: "Just now" };
+                setMessages(prevMessages => [...prevMessages, botMessage]);
+            } catch (error) {
+                console.error("Error fetching response:", error);
+                const botMessage = { sender: "Bot", text: "Sorry, I couldn't get a response.", time: "Just now" };
+                setMessages(prevMessages => [...prevMessages, botMessage]);
+            }
+        }
+    };
+
     return (
         <div className="chat">
             <div className="messages">
                 <h1>Messages</h1>
-                <div className="message" onClick={() => setChat(true)}>
-                    <img src="Profilephoto.jpg" alt="" />
-                    <span>Nishchal Sachan</span>
-                    <p>Lorem ipsum dolor sit amet...</p>
-                </div>
-
-                <div className="message" onClick={() => setChat(true)}>
-                    <img src="Profilephoto.jpg" alt="" />
-                    <span>Nishchal Sachan</span>
-                    <p>Lorem ipsum dolor sit amet...</p>
-                </div>
-
-                <div className="message" onClick={() => setChat(true)}>
-                    <img src="Profilephoto.jpg" alt="" />
-                    <span>Nishchal Sachan</span>
-                    <p>Lorem ipsum dolor sit amet...</p>
-                </div>
-
-                <div className="message" onClick={() => setChat(true)}>
-                    <img src="Profilephoto.jpg" alt="" />
-                    <span>Nishchal Sachan</span>
-                    <p>Lorem ipsum dolor sit amet...</p>
-                </div>
-
-                <div className="message" onClick={() => setChat(true)}>
-                    <img src="Profilephoto.jpg" alt="" />
-                    <span>Nishchal Sachan</span>
-                    <p>Lorem ipsum dolor sit amet...</p>
-                </div>
+                {messages.map((msg, index) => (
+                    <div key={index}>
+                        <p>{msg.sender}: {msg.text}</p>
+                    </div>
+                ))}
             </div>
-            {chat && (
-                <div className="chatBox">
-                    <div className="top">
-                        <div className="user">
-                            <img src="Profilephoto.jpg" alt="" />
-                            <span>Nishchal Sachan</span>
-                        </div>
-                        <span className="close" onClick={() => setChat(null)}>X</span>
-                    </div>
-                    <div className="center">
-                        <div className="chatMsg">
-                            <p>Lorem ipsum dolor sit amet..</p>
-                            <span>1 hour ago</span>
-                        </div>
 
-                        <div className="chatMsg own">
-                            <p>Lorem ipsum dolor sit amet..</p>
-                            <span>1 hour ago</span>
-                        </div>
-
-                        <div className="chatMsg">
-                            <p>Lorem ipsum dolor sit amet..</p>
-                            <span>1 hour ago</span>
-                        </div>
-
-                        <div className="chatMsg own">
-                            <p>Lorem ipsum dolor sit amet..</p>
-                            <span>1 hour ago</span>
-                        </div>
-
-                        <div className="chatMsg">
-                            <p>Lorem ipsum dolor sit amet..</p>
-                            <span>1 hour ago</span>
-                        </div>
-
-                        <div className="chatMsg own">
-                            <p>Lorem ipsum dolor sit amet..</p>
-                            <span>1 hour ago</span>
-                        </div>
-
-                        <div className="chatMsg">
-                            <p>Lorem ipsum dolor sit amet..</p>
-                            <span>1 hour ago</span>
-                        </div>
-
-                        <div className="chatMsg own">
-                            <p>Lorem ipsum dolor sit amet..</p>
-                            <span>1 hour ago</span>
-                        </div>
-                    </div>
-                    <div className="bottom">
-                        <textarea></textarea>
-                        <button>Send</button>
-                    </div>
-                </div>
-            )}
+            <div className="bottom">
+                <textarea
+                    value={userInput}
+                    onChange={(e) => setUserInput(e.target.value)}
+                    placeholder="Type a message..."
+                />
+                <button onClick={handleSendMessage}>Send</button>
+            </div>
         </div>
-    )
+    );
 }
 
-export default Chat
+export default Chat;

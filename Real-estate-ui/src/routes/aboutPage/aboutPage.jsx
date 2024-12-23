@@ -49,13 +49,13 @@ const AboutPage = () => {
             <ul>
               <li>
                 <strong>Email:</strong>{" "}
-                <a href="mailto:sachannishchal@gmail.com">
-                  sachannishchal@gmail.com
+                <a href="shanisoni7084@gmail.com">
+                shanisoni7084@gmail.com
                 </a>
               </li>
               <li>
                 <a
-                  href="http://www.linkedin.com/in/sachannishchal"
+                  href="https://www.linkedin.com/in/shanisoni"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -64,7 +64,7 @@ const AboutPage = () => {
               </li>
               <li>
                 <a
-                  href="https://github.com/Nishchal-Sachan"
+                  href="https://github.com/Shanisoni"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -81,9 +81,9 @@ const AboutPage = () => {
         {/* Profile Image Section */}
         <div className="imageContainer">
           <img
-            src="Profilephoto.jpg"
+            src="https://res.cloudinary.com/dl7e8qndf/image/upload/v1734803406/HeroImage_dwjhvz.jpg"
             alt="Developer's Profile"
-            className="profilePhoto"
+            className="ProfilePhoto"
           />
         </div>
       </div>

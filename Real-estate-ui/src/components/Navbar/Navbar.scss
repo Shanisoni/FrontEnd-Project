@@ -6,6 +6,7 @@ nav {
     height: 100px;
     align-items: center;
 
+
     a {
         transition: all 0.4s ease;
 
@@ -52,7 +53,7 @@ nav {
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        background-color: #fcf5f3;
+        background-color: #faf8f7;
         height: 100%;
 
         @include md {

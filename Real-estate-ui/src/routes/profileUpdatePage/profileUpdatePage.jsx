@@ -34,7 +34,7 @@ function ProfileUpdatePage() {
         </form>
       </div>
       <div className="sideContainer">
-        <img src="Profilephoto.jpg" alt="" className="avatar" />
+        <img src="https://res.cloudinary.com/dl7e8qndf/image/upload/v1734803406/HeroImage_dwjhvz.jpg" alt="" className="avatar" />
       </div>
     </div>
   );
